@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   namespace :api do
     resources :events do
       resources :locations
-  end
-  resources :locations do
-    resources :notes
-    resources :addresses
+    end
+    resources :locations do
+      resources :notes
+      resources :addresses
+    end
   end
 end
