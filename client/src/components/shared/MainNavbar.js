@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-// import { AuthConsumer } from '../../providers/AuthProvider';
+import { AuthConsumer } from '../../providers/AuthProvider';
 
 const MainNavbar = ({ user, handleLogout }) => {
   
@@ -48,11 +48,10 @@ const MainNavbar = ({ user, handleLogout }) => {
     </>
   )
 }
-export default MainNavbar
-// const ConnectedMainNavbar = (props) => (
-//   <AuthConsumer>
-//     { value => <MainNavbar {...props} {...value} />}
-//   </AuthConsumer>
-// )
+const ConnectedMainNavbar = (props) => (
+  <AuthConsumer>
+    { value => <MainNavbar {...props} {...value} />}
+  </AuthConsumer>
+)
 
-// export default ConnectedMainNavbar;
+export default ConnectedMainNavbar;
