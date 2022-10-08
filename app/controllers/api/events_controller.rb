@@ -1,4 +1,5 @@
 class Api::EventsController < ApplicationController
+  before_action :set_user
   def index
     render json: @user.events
   end

@@ -1,4 +1,5 @@
 class Api::LocationsController < ApplicationController
+  before_action :set_event
   def index
     render json: @event.locations
   end
