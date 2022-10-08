@@ -6,7 +6,8 @@ import Nomatch from './components/shared/Nomatch';
 import MainNavbar from './components/shared/MainNavbar';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-// import Notes from './components/notes/Notes';
+import Notes from './components/notes/Notes';
+import Addresses from './components/addresses/Addresses';
 import Profile from './components/auth/Profile';
 
 const App = () => (
@@ -18,6 +19,8 @@ const App = () => (
           <Route path='/' element={<Home />} />
           {/* protected routes are only for pages accessed when we are logged in */}
           <Route path='/' element={<ProtectedRoute /> }>
+          <Route path='/notes' element={<Notes />} />
+          <Route path='/addresses' element={<Addresses />} />
             <Route path='/profile' element={<Profile />} />
           </Route>
           <Route path='/login' element={<Login />} />
