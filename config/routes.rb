@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :locations
   end
   resources :locations do
-    resources :notes, :addresses
+    resources :notes
+    resources :addresses
   end
 end
