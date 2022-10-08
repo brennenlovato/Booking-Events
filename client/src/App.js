@@ -7,9 +7,10 @@ import MainNavbar from './components/shared/MainNavbar';
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Notes from './components/notes/Notes';
-import Addresses from './components/addresses/Addresses';
+import Addresses from './components/address/Addresses';
 import Profile from './components/auth/Profile';
 import Event from './components/events/Event';
+import EventForm from './components/events/EventForm';
 import Location from './components/locations/Location';
 
 const App = () => (
@@ -22,6 +23,7 @@ const App = () => (
           {/* protected routes are only for pages accessed when we are logged in */}
           <Route path='/' element={<ProtectedRoute /> }>
           <Route path='/events' element={<Event />} />
+          <Route path='/updateEvent' element={<EventForm />} />
           <Route path='/locations' element={<Location />} />
           <Route path='/notes' element={<Notes />} />
           <Route path='/addresses' element={<Addresses />} />

@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 import { LocationConsumer } from "../../providers/LocationProvider";
 import LocationForm from './LocationForm';
 
-const LocationShow = ({ id, resort_name, ndate, deleteLocation, eventId }) => {
+const LocationShow = ({ id, resort_name, deleteLocation, eventId }) => {
   const [showing, setShow] = useState(false)
   const [editing, setEdit] = useState(false);
 
@@ -12,12 +12,6 @@ const LocationShow = ({ id, resort_name, ndate, deleteLocation, eventId }) => {
     <>
       <ListGroup.Item>
         <Row>
-          <Col>
-            {subject}
-          </Col>
-          <Col>
-            {body}
-          </Col>
           <Col>
             <Button variant="primary" onClick={() => setShow(true)}>
               Show
@@ -29,7 +23,7 @@ const LocationShow = ({ id, resort_name, ndate, deleteLocation, eventId }) => {
               </Modal.Header>
               <Modal.Body>
                 <p>
-                  Locations: {body}
+                  Locations: {resort_name}
                 </p>
               </Modal.Body>
               <Modal.Footer>

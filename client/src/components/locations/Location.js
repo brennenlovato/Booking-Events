@@ -10,7 +10,7 @@ const Locations = ({ locations, getAllLocations }) => {
   const [adding, setAdd] = useState(false)
 
   useEffect( () => {
-    getAllNotes(eventId)
+    getAllLocations(eventId)
   }, [])
 
   return (
@@ -24,13 +24,13 @@ const Locations = ({ locations, getAllLocations }) => {
           <Modal.Title>Add Location</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <NoteForm 
+          <LocationForm 
             setAdd={setAdd}
             catId={eventId}
           />
         </Modal.Body>
       </Modal>
-      <NoteList 
+      <LocationList 
         locations={locations}
         eventId={eventId}
       />
