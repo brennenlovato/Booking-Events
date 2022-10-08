@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { initMiddleware } from 'devise-axios';
+// import AuthProvider from './providers/AuthProvider';
+// import NoteProvider from './providers/NoteProvider';
+
+initMiddleware()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      {/* <AuthProvider> */}
+          {/* <NoteProvider> */}
+            <App />
+          {/* </NoteProvider> */}
+      {/* </AuthProvider> */}
+    </BrowserRouter>
   </React.StrictMode>
 );
 
