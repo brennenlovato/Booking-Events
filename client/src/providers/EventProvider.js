@@ -71,7 +71,7 @@ const EventProvider = ({ children }) => {
       events,
       errors,
       setErrors,
-      getAllEvents
+      getAllEvents,
       addEvent,
       updateEvent,
       deleteEvent,
