@@ -1,6 +1,6 @@
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { useState, useEffect } from 'react';
-import { Form, Row, Col, Container, Image, Button } from 'react-bootstrap';
+import { Form, Row, Col, Container, Button } from 'react-bootstrap';
 // Import React FilePond
 // import { FilePond, registerPlugin } from "react-filepond";
 
@@ -17,12 +17,12 @@ import { Form, Row, Col, Container, Image, Button } from 'react-bootstrap';
 
 const Profile = ({ user, updateUser }) => {
   const [editing, setEditing] = useState(false);
-  const [formVals, setFormValue] = useState({ fname: '', lname: '', email: '' })
+  const [formVals, setFormValue] = useState({ name: '', email: '' })
 //   const [file, setFile] = useState()
 
   useEffect( () => {
-    const { fname, lname, email } = user 
-    setFormValue({ fname, lname, email })
+    const { name, email } = user 
+    setFormValue({ name, email })
   }, [])
 
   const handleSubmit = (e) => {
@@ -50,21 +50,12 @@ const Profile = ({ user, updateUser }) => {
         <h1>Edit User</h1>
         <Col md='8'>
           <Form.Group>
-            <Form.Label>First Name</Form.Label>
+            <Form.Label>Name</Form.Label>
             <Form.Control 
-              name="fname"
-              value={formVals.fname}
+              name="name"
+              value={formVals.name}
               required
-              onChange={(e) => setFormValue({...formVals, fname: e.target.value })}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control 
-              name="lname"
-              value={formVals.lname}
-              required
-              onChange={(e) => setFormValue({...formVals, lname: e.target.value })}
+              onChange={(e) => setFormValue({...formVals, name: e.target.value })}
             />
           </Form.Group>
           <Form.Group>
@@ -87,7 +78,7 @@ const Profile = ({ user, updateUser }) => {
     return (
       <>
         <Col md='8'>
-          <h1>{formVals.fname} {formVals.lname}</h1>
+          <h1>{formVals.name}</h1>
           <h1>{formVals.email}</h1>
         </Col>
       </>

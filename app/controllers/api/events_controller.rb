@@ -1,16 +1,17 @@
 class Api::EventsController < ApplicationController
-  before_action :set_user
+
+  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :update, :destroy]
   def index
     render json: @user.events
   end
 
   def show
-    @event = @user.events.find(params[:id])
     render json: @event
   end
 
   def create
-    @event = user.events.new(event_params)
+    @event = current_user.events.new(event_params)
     if @event.save
       render json: @event
     else
@@ -19,7 +20,6 @@ class Api::EventsController < ApplicationController
   end
 
   def update
-    @event = user.events.find(params[:id])
     if @event.update(event_params)
       render json: @event
     else
@@ -28,21 +28,16 @@ class Api::EventsController < ApplicationController
   end
 
   def destroy
-    @event = user.events.find(params[:id])
     @event.destroy
     render json: { message: 'event deleted' }
   end
 
   private
   def event_params
-    params.require(:event).permit(:resort)
-  end
-
-  def set_user
-    @user = User.find(params[:user_id])
+    params.require(:event).permit(:title, :edate, :desc)
   end
 
   def set_event
-    @event = @user.events.find(params[:id])
+    @event = current_user.events.find(params[:id])
   end
 end

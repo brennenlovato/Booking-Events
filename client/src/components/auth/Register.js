@@ -3,7 +3,7 @@ import { useState } from "react";
 import Flash from "../shared/Flash";
 
 const Register = ({ handleRegister, errors, setErrors }) => {
-  const [user, setUser] = useState({ email: '', fname: '', lname: '', password: '', passwordConfirmation: '' })
+  const [user, setUser] = useState({ email: '', name: '', password: '', passwordConfirmation: '' })
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -37,19 +37,11 @@ const Register = ({ handleRegister, errors, setErrors }) => {
         />
         <label>First Name</label>
         <input
-          name='fname'
-          value={user.fname}
-          onChange={ (e) => setUser({ ...user, fname: e.target.value })}
+          name='name'
+          value={user.name}
+          onChange={ (e) => setUser({ ...user, name: e.target.value })}
           required
-          placeholder="First Name"
-        />
-        <label>Last Name</label>
-        <input
-          name='lname'
-          value={user.lname}
-          onChange={ (e) => setUser({ ...user, lname: e.target.value })}
-          required
-          placeholder="Last Name"
+          placeholder="Name"
         />
         <label>Password</label>
         <input
